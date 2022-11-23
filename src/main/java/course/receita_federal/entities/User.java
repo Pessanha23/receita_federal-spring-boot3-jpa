@@ -8,6 +8,7 @@ import java.util.Objects;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Long cpf;
     private String name;
     private Integer idade;
@@ -15,11 +16,19 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(Long cpf, String name, Integer idade) {
-        super();
+    public User(Long id, Long cpf, String name, Integer idade) {
+        this.id = id;
         this.cpf = cpf;
         this.name = name;
         this.idade = idade;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getCpf() {
